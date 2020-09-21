@@ -1,5 +1,3 @@
 <?php
 
-echo "test";
-<hr>
-  echo "radi";
+echo "ovo je update";
