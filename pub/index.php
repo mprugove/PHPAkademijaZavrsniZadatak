@@ -7,7 +7,7 @@ define('BP', dirname(__DIR__));
 define('APPNAME', 'Rent a Car!');
 define('APPTITLE', 'Rental');
 define('APPVERSION', '1.0.0');
-define('URLROOT', 'rentacar.loc');
+define('URLROOT', 'http://phpacademy.inchoo.io/~polaznik17/');
 
 
 
