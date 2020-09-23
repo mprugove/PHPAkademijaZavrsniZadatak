@@ -1,0 +1,10 @@
+<?php
+
+return [
+    'db' => [
+        'host' => 'db',
+        'name' => 'rent-a-car',
+        'user' => '',
+        'password' => ''
+    ]
+];
