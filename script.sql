@@ -27,7 +27,7 @@ create table if not exists user (
     pass varchar(100),
     country varchar(100),
     license varchar(10),
-    user_type  varchar(10) default 'user',
+    user_type  varchar(10) default 'User',
     join_date timestamp
 );
 
@@ -47,8 +47,10 @@ create table if not exists rental (
     car_id int,
     brand_id int,
     user_id int,
-    foreign key (car_id) references cars(id),
-    foreign key (brand_id) references car_brand(id),
+    foreign key (car_id) references cars(id)
+    on delete cascade,
+    foreign key (brand_id) references car_brand(id)
+    on delete cascade,
     foreign key (user_id) references user(id),
     on delete cascade
 );

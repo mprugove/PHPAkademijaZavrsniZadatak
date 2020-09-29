@@ -6,7 +6,12 @@ return [
     'db' => [
         'host' => 'db',
         'name' => 'rent_a_car',
-        'user' => '',
-        'password' => ''
+        'user' => 'root',
+        'password' => 'inchoo'
     ]
 ];
+
+
+
+
+
