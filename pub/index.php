@@ -1,7 +1,6 @@
 <?php
 require_once '../app/config.php';
 
-
 define('BP', dirname(__DIR__));
 define('APPNAME', 'Rent a Car!');
 define('APPTITLE', 'Rental');
@@ -19,18 +18,10 @@ spl_autoload_register(function ($class) {
 
 session_start();
 
-
 $router = new \App\Core\Router();
 $app = new \App\Core\Application($router);
 
-try {
-    $resp = $app->start();
-} catch (Exception $e) {
-    $resp = '<h1>404</h1>';
-} catch (Exception $e) {
-    $resp = '<h1>500</h1>';
-}
-
+$resp = $app->start();
 
 if ($resp) {
     echo $resp;
