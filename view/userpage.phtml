@@ -1,0 +1,63 @@
+<?php include 'inc/header.phtml'; ?>
+<div class="container-flex">
+    <div>
+        <h1 class="display-5 pt-5">Account Information</h1>
+    </div>
+</div>
+<?php if($_SESSION['user_type'] === '1'): ?>
+    <?php foreach($users as $user) :?>
+
+        <div class="container-flex py-5">
+            <div class="row">
+                <div class="w-25">
+                    <label for="username">Username
+                        <h2><input type="text" class="form-control" value="<?= $user->getUsername()?>" name="username" disabled></h2>
+                    </label>
+                    <label for="firstname">First Name
+                        <h2><input type="text" class="form-control " value="<?= $user->getFirstName()?>" name="firstname" ></h2>
+                    </label>
+                        <label for="lastname">Last Name
+                        <h2><input type="text" class="form-control " value="<?= $user->getLastName()?>" name="lastname"></h2>
+                    </label>
+                    <label for="country">Country
+                        <h2><input type="text" class="form-control " value="<?= $user->getCountry()?>" name="country"></h2>
+                    </label>
+                    <label for="pass">License number
+                        <h2><input type="text" class="form-control " value="<?= $user->getLicense()?>" name="license"></h2>
+                    </label>
+                    <label for="usertype">User Type
+                        <h2><input type="text" class="form-control " value="<?= $user->getUserType()?>" name="usertype" disabled></h2>
+                    </label>
+        <?php if ($currentUser && $currentUser->getId()): ?>
+                    <a href="/userpage/delete?id=<?= $user->getId() ?>" class="card-link">Delete</a>
+        <?php endif; ?>
+
+                </div>
+            </div>
+        </div>
+
+    <?php endforeach; ?>
+<?php else: ?>
+
+    <?php foreach($users as $user) :?>
+        <div class="container-flex py-5">
+            <div class="row">
+                <div class="w-25">
+                    <label for="Username">Username</label>
+                    <h2><input type="text" class="form-control" value="<?= $user->getUsername()?>" disabled></h2>
+                    <label for="Username">First Name</label>
+                    <h2><input type="text" class="form-control " value="<?= $user->getFirstName()?>" disabled></h2>
+                    <label for="Username">Last Name</label>
+                    <h2><input type="text" class="form-control " value="<?= $user->getLastName()?>" disabled></h2>
+                    <label for="Username">Country</label>
+                    <h2><input type="text" class="form-control " value="<?= $user->getCountry()?>" disabled></h2>
+                    <label for="Username">License number</label>
+                    <h2><input type="text" class="form-control " value="<?= $user->getLicense()?>" disabled></h2>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+
+<?php endif; ?>
+
+<?php include 'inc/footer.phtml'; ?>

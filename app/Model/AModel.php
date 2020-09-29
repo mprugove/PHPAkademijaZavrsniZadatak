@@ -3,25 +3,26 @@
 namespace App\Model;
 
 use App\Core\Database;
-use App\Core\DataObject;
+use App\Core\Data;
 
-abstract class AModel extends DataObject
+abstract class AModel extends Data
 {
-
     protected static $table;
+
     protected static function getTable(): string
     {
         if (static::$table) {
             return static::$table;
         }
 
-        throw new \Exception('$table property is not set.');
+        throw new \Exception('$tableName property is not set.');
     }
 
     protected static function createObject(array $data): self
     {
         return new static($data);
     }
+
 
     public static function getOne(string $column, $value): self
     {
@@ -36,7 +37,7 @@ abstract class AModel extends DataObject
         return static::createObject($firstRow);
     }
 
-    public static function getMultiple(string $column, $value, string $orderBy = null, array $limit = []): array
+    public static function getMultiple(string $column, $value): array
     {
         $table = static::getTable();
         $sql = "SELECT * FROM {$table} WHERE {$column} = :value";
@@ -94,9 +95,15 @@ abstract class AModel extends DataObject
 
         $sql = "INSERT INTO {$table} ($columnsString) VALUES ($valuesString)";
 
-        $statement = Database::getInstance()->prepare($sql);
+        $db = Database::getInstance();
+
+        $statement = $db->prepare($sql);
         $statement->execute($data);
+
+        return $db->lastInsertId(static::getTable());
     }
+
+    // update
 
     public static function delete(string $column, $value)
     {

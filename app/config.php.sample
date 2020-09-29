@@ -3,7 +3,7 @@
 return [
     'db' => [
         'host' => 'db',
-        'name' => 'rent-a-car',
+        'name' => 'rent_a_car',
         'user' => '',
         'password' => ''
     ]

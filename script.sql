@@ -18,7 +18,7 @@ create table if not exists cars (
     foreign key (brand_id) references car_brand(id)
 );
 
-create table if not exists users (
+create table if not exists user (
     id int not null auto_increment primary key,
     username varchar(100) unique,
     first_name varchar(100),
@@ -27,17 +27,29 @@ create table if not exists users (
     pass varchar(100),
     country varchar(100),
     license varchar(10),
+    user_type  varchar(10) default 'user',
     join_date timestamp
+);
+
+create table post (
+    id int auto_increment not null primary key,
+    content text,
+    date timestamp,
+    user_id int,
+    foreign key(user_id) references user(id)
 );
 
 create table if not exists rental (
     id int auto_increment not null primary key,
     start_date date,
     end_date date,
+    available varchar(15),
     car_id int,
     brand_id int,
     user_id int,
     foreign key (car_id) references cars(id),
     foreign key (brand_id) references car_brand(id),
-    foreign key (user_id) references users(id)
+    foreign key (user_id) references user(id),
+    on delete cascade
 );
+

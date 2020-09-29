@@ -1,6 +1,33 @@
-<?php
-    include 'inc/header.phtml';
+<?php include 'inc/header.phtml'; ?>
 
-    echo "home";
+<?php if ($currentUser): ?>
+    <form method="POST" action="/post/create">
+        <div class="form-group">
+            <label for="new_post" class="py-3" ><input type="text" value="Create news" class="font-weight-bold form-control" disabled></label>
+            <textarea class="form-control" id="new_post" name="new_post" rows="3" placeholder="Create news"></textarea>
+            <button type="submit" class="btn btn-outline-dark btn-light my-4 py-3 px-5">Post</button>
+        </div>
+    </form>
+<?php endif; ?>
+    <hr>
+<?php foreach ($posts as $post): ?>
 
-    include 'inc/footer.phtml';
+    <div class="row">
+        <div class="col-lg bg-dark">
+            <div class="card border-rounded">
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted"><?= $post->getUserName() ?> (<?= $post->getDate() ?>)</h6>
+                    <p class="card-text"><?= htmlspecialchars($post->getContent()) ?></p>
+                    <?php if ($currentUser && $currentUser->getId() == $post->getUserId()): ?>
+                        <a href="/post/delete?id=<?= $post->getId() ?>" class="card-link">Delete</a>
+                        <a href="/update?id=<?= $post->getId() ?>" class="card-link">Update</a>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+<?php endforeach; ?>
+
+<?php include 'inc/footer.phtml'; ?>
