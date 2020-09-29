@@ -29,7 +29,6 @@ class Router implements RouterInterface
         }
 
         $object = new $className();
-        str_replace('~polaznik17/', '', $pathInfo);
         return $object->$method() ?? '';
     }
 }
