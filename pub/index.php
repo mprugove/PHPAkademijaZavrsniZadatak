@@ -23,7 +23,14 @@ session_start();
 $router = new \App\Core\Router();
 $app = new \App\Core\Application($router);
 
-$resp = $app->start();
+try {
+    $resp = $app->start();
+} catch (Exception $e) {
+    $resp = '<h1>404</h1>';
+} catch (Exception $e) {
+    $resp = '<h1>500</h1>';
+}
+
 
 if ($resp) {
     echo $resp;
