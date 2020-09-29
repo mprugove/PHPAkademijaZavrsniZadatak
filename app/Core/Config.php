@@ -10,5 +10,4 @@ class Config
         $config = include $configPath;
         return $config[$key] ?? null;
     }
-
 }

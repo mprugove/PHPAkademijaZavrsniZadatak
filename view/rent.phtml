@@ -1,0 +1,35 @@
+<?php include 'inc/header.phtml'; ?>
+
+    <form class="form-inline my-2 my-lg-0 py-3" name="search">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-dark btn-light my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+<?php foreach ($rents as $car): ?>
+        <table class="table table-hover table-primary table-sm">
+
+                <tr>
+                    <th>Car</th>
+                    <th>KM</th>
+                    <th>Year</th>
+                    <th>Color</th>
+                    <th>Loan start date</th>
+                    <th>Loan end date</th>
+                    <th>Available</th>
+                    <th>Loan</th>
+                </tr>
+                <tr>
+                    <td><?= $car->getCarName()?></td>
+                    <td><?= $car->getCarKm()?></td>
+                    <td><?= $car->getCarYear()?></td>
+                    <td><?= $car->getCarColor()?></td>
+                    <td><?= $car->getStartDate()?></td>
+                    <td><?= $car->getEndDate()?></td>
+                    <td><?= "yes/no";?></td>
+<!--                    unfinished -->
+                    <td><button class="btn btn-light btn-outline-dark" type="submit"> Loan</button></td>
+                </tr>
+            </tbody>
+        </table>
+<?php endforeach; ?>
+<?php include 'inc/footer.phtml'; ?>

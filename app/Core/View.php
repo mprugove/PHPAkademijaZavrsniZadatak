@@ -1,6 +1,9 @@
 <?php
+
 declare(strict_types=1);
+
 namespace App\Core;
+
 class View
 {
     public const VIEW_PATH = BP . DIRECTORY_SEPARATOR . 'view';
@@ -25,7 +28,6 @@ class View
 
     protected function modifyArgs(array $args): array
     {
-        // adds $currentUser variable to all views
         $args['currentUser'] = Auth::getInstance()->getCurrentUser();
         return $args;
     }

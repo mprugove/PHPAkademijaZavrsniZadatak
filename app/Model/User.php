@@ -8,8 +8,9 @@ class User extends AModel
 {
     protected static $table = 'user';
 
-    public function getPass()
+    public function getPass(): string
     {
         return $this->__get('pass');
     }
+
 }

@@ -6,14 +6,14 @@ namespace App\Core;
 
 class Router implements RouterInterface
 {
-    public function exact(string $pathInfo)
+    public function exact( $pathInfo)
     {
         $pathInfo = trim($pathInfo, '/');
         $parts = $pathInfo ?
             explode('/', $pathInfo)
             : [];
 
-        if (count($parts) > 2) {
+        if (count($parts) > 3) {
             throw new \Exception('Not valid URL');
         }
 

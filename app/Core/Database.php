@@ -20,10 +20,6 @@ class Database extends \PDO
         );
     }
 
-    private function __clone()
-    {
-    }
-
     public static function getInstance(): self
     {
         if (static::$instance === null) {

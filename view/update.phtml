@@ -1,0 +1,15 @@
+<?php include 'inc/header.phtml'; ?>
+
+<?php foreach ($posts as $post): ?>
+    <form method="POST" action="/update?id=<?= $post->getId() ?>">
+        <div class="form-group">
+            <label for="update_post" class="py-3" ><input type="text" value="Update" class="font-weight-bold form-control" disabled></label>
+            <textarea class="form-control" id="update_post" name="update_post" rows="3" ></textarea>
+            <button type="submit" class="btn btn-outline-dark btn-light my-4 py-3 px-5">Update</button>
+        </div>
+    </form>
+<?php endforeach; ?>
+    <hr>
+
+
+<?php include 'inc/footer.phtml'; ?>
