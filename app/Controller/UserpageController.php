@@ -20,7 +20,7 @@ class UserpageController extends AController
             ]);
         }
     }
-
+    // admin delete
     public function deleteAction()
     {
         $userId = $_GET['id'] ?? null;
@@ -30,6 +30,7 @@ class UserpageController extends AController
         header('Location: /userpage');
     }
 
+    // admin add users
 //    public function registerSubmitAction()
 //    {
 //        if (!$this->isPOST()) { // allow post only

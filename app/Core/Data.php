@@ -35,30 +35,6 @@ class Data
         return $this;
     }
 
-    public function getData(string $key = null): array
-    {
-        if ($key !== null) {
-            return $this->__get($key);
-        }
-        return $this->data;
-    }
-
-    /**
-     * The $key parameter can be string or array.
-     * If $key is string, the attribute value will be overwritten by $value.
-     * If $key is an array, it will overwrite all the data in the object.
-     */
-    public function setData($key, $value = null)
-    {
-        if ($key === (array)$key) {
-            $this->data = $key;
-        } else {
-            $this->data[$key] = $value;
-        }
-
-        return $this;
-    }
-
     public function __call($name, $arguments)
     {
         $key = $this->underscore(substr($name, 3));
@@ -74,16 +50,9 @@ class Data
             case 'has':
                 return $this->__isset($key);
         }
-
         return $this;
     }
 
-    /**
-     * $this->setMyField($value) === $this->setData('my_field', $value)
-     *
-     * @param string $name
-     * @return string
-     */
     protected function underscore(string $name): string
     {
         return strtolower(trim(preg_replace('/([A-Z]|[0-9]+)/', "_$1", $name), '_'));
