@@ -1,4 +1,9 @@
 <?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 define('BP', dirname(__DIR__));
 define('APPNAME', 'Rent a Car!');
 define('APPTITLE', 'Rental');
@@ -24,3 +29,4 @@ $resp = $app->start();
 if ($resp) {
     echo $resp;
 }
+
