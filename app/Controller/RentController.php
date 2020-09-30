@@ -12,7 +12,7 @@ class RentController extends AController
 
     public function indexAction()
     {
-        return $this->view->render('/rent', [
+        return $this->view->render('rent', [
             'rents' => Rent::getAll(),
             'users' => User::getAll(),
             'posts' => Post::getAll(),
