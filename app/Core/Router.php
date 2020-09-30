@@ -11,6 +11,8 @@ class Router implements RouterInterface
             explode('/', $pathInfo)
             : [];
 
+        str_replace('~polaznik17/', '', $pathInfo);
+
         if (count($parts) > 7) {
             throw new \Exception('Not valid URL');
         }
