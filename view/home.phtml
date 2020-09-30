@@ -1,5 +1,13 @@
 <?php include 'inc/header.phtml'; ?>
 
+<div class="container py-3">
+    <div class="jumbotron jumbotron-fluid mx-5 rounded jumbo">
+        <h1 class="display-4 ">Car rental website</h1>
+        <p id="fade"class="lead">Welcome to our car rental website, checkout news and offers</p>
+        <hr class="my-4 hr">
+    </div>
+</div>
+
 <?php if ($currentUser): ?>
     <form method="POST" action="/post/create">
         <div class="form-group">
@@ -13,21 +21,24 @@
 <?php foreach ($posts as $post): ?>
 
     <div class="row">
-        <div class="col-lg bg-dark">
-            <div class="card border-rounded">
+        <div class="col-lg bg-dark rounded">
+            <div class="card rounded card-color">
                 <div class="card-body">
                     <h6 class="card-subtitle mb-2 text-muted"><?= $post->getUserName() ?> (<?= $post->getDate() ?>)</h6>
                     <p class="card-text"><?= htmlspecialchars($post->getContent()) ?></p>
                     <?php if ($currentUser && $currentUser->getId() == $post->getUserId()): ?>
-                        <a href="/post/delete?id=<?= $post->getId() ?>" class="card-link">Delete</a>
-                        <a href="/update?id=<?= $post->getId() ?>" class="card-link">Update</a>
+                        <button class="btn btn-outline-danger ">
+                            <a href="/post/delete?id=<?= $post->getId() ?>" class="card-link text-dark">Delete</a>
+                        </button>
+                    <button class="btn btn-outline-primary">
+<!--                        unfinished-->
+                        <a href="/update?id=<?= $post->getId() ?>" class="card-link text-dark">Update</a>
+                    </button>
                     <?php endif; ?>
                 </div>
             </div>
         </div>
     </div>
-
-    <hr>
 <?php endforeach; ?>
 
 <?php include 'inc/footer.phtml'; ?>

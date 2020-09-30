@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Core;
-
 
 class Router implements RouterInterface
 {
@@ -13,7 +11,7 @@ class Router implements RouterInterface
             explode('/', $pathInfo)
             : [];
 
-        if (count($parts) > 3) {
+        if (count($parts) > 7) {
             throw new \Exception('Not valid URL');
         }
 

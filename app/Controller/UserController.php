@@ -99,8 +99,6 @@ class UserController extends AController
         return true;
     }
 
-
-
     public function logoutAction()
     {
         if ($this->auth->isLoggedIn()) {
@@ -109,5 +107,4 @@ class UserController extends AController
 
         header('Location: /');
     }
-
 }
