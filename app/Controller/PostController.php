@@ -6,7 +6,6 @@ use App\Model\Post;
 
 class PostController extends AController
 {
-
     public function createAction()
     {
         if (!$this->isPOST() || !$this->auth->isLoggedIn()) {
@@ -42,7 +41,6 @@ class PostController extends AController
         if ($post->getUserId() == $this->auth->getCurrentUser()->getId()) {
             Post::delete('id', $postId);
         }
-
         header('Location: /');
     }
 }

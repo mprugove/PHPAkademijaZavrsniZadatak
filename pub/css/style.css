@@ -1,0 +1,14 @@
+.jumbo {
+    background-color: #ECFAFF;
+    text-align: center;
+    !important
+}
+
+.jumbo hr {
+    background-color: black;
+    width: 95%;
+}
+
+.card-color {
+    background-color: aliceblue;
+}
