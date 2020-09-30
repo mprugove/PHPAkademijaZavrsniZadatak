@@ -1,6 +1,4 @@
 <?php
-require_once '../app/config.php';
-
 define('BP', dirname(__DIR__));
 define('APPNAME', 'Rent a Car!');
 define('APPTITLE', 'Rental');

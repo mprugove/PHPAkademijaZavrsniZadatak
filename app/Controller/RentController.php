@@ -17,7 +17,6 @@ class RentController extends AController
             'users' => User::getAll(),
             'posts' => Post::getAll(),
         ]);
-
     }
 
     public function createAction()
@@ -28,7 +27,6 @@ class RentController extends AController
         }
 
         $rentContent = $_POST['rent'] ?? '';
-
         if (!$rentContent) {
             header('Location: /');
             return;
@@ -53,15 +51,11 @@ class RentController extends AController
             header('Location: /');
             return;
         }
-
         $rent = Post::getOne('id', $rentId);
 
         if ($rent->getUserId() == $this->auth->getCurrentUser()->getId()) {
             Post::delete('id', $rentId);
         }
-
-
         header('Location: /');
     }
-
 }
