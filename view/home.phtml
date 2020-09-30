@@ -9,13 +9,16 @@
 </div>
 
 <?php if ($currentUser): ?>
-    <form method="POST" action="/post/create">
-        <div class="form-group">
-            <label for="new_post" class="py-3" ><input type="text" value="Create news" class="font-weight-bold form-control" disabled></label>
-            <textarea class="form-control" id="new_post" name="new_post" rows="3" placeholder="Create news"></textarea>
-            <button type="submit" class="btn btn-outline-dark btn-light my-4 py-3 px-5">Post</button>
-        </div>
-    </form>
+    <?php if ($_SESSION['user_type'] === '1'): ?>
+
+        <form method="POST" action="/post/create">
+            <div class="form-group">
+                <label for="new_post" class="py-3" ><input type="text" value="Create news" class="font-weight-bold form-control" disabled></label>
+                <textarea class="form-control" id="new_post" name="new_post" rows="3" placeholder="Create news"></textarea>
+                <button type="submit" class="btn btn-outline-dark btn-light my-4 py-3 px-5">Post</button>
+            </div>
+        </form>
+<?php endif; ?>
 <?php endif; ?>
     <hr>
 <?php foreach ($posts as $post): ?>
