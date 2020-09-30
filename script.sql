@@ -1,8 +1,10 @@
-drop database if exists rent_a_car;
-create database rent_a_car character set utf8mb4 COLLATE utf8mb4_unicode_ci;
-
-use rent_a_car;
-
+--
+-- local
+-- drop database if exists rent_a_car;
+-- create database rent_a_car character set utf8mb4 COLLATE utf8mb4_unicode_ci;
+--
+-- use rent_a_car;
+--
 create table if not exists car_brand (
     id int auto_increment not null primary key,
     brand varchar(255)
@@ -51,7 +53,7 @@ create table if not exists rental (
     on delete cascade,
     foreign key (brand_id) references car_brand(id)
     on delete cascade,
-    foreign key (user_id) references user(id),
+    foreign key (user_id) references user(id)
     on delete cascade
 );
 
