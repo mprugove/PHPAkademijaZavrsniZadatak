@@ -9,7 +9,7 @@ class HomeController extends AController
 {
     public function indexAction()
         {
-            return $this->view->render('home', [
+            return $this->view->render('/home', [
             'posts' => Post::getAll(),
             'users' => User::getAll(),
         ]);
