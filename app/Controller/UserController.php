@@ -14,7 +14,7 @@ class UserController extends AController
             return $this->view->render('login');
         }
 
-        header('Location: /');
+        header('Location: / ');
     }
 
     public function registerAction()
