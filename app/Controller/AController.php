@@ -16,12 +16,12 @@ abstract class AController
         $this->auth = Auth::getInstance();
     }
 
-    protected function isPOST(): bool
+    protected function isPOST()
     {
         return $_SERVER['REQUEST_METHOD'] === 'POST';
     }
 
-    protected function isGET(): bool
+    protected function isGET()
     {
         return $_SERVER['REQUEST_METHOD'] === 'GET';
     }
