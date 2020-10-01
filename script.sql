@@ -5,6 +5,9 @@
 --
 -- use rent_a_car;
 --
+
+use polaznik17;
+
 create table if not exists car_brand (
     id int auto_increment not null primary key,
     brand varchar(255)
@@ -31,6 +34,7 @@ create table if not exists user (
     license varchar(10),
     user_type  varchar(10) default 'User',
     join_date timestamp
+
 );
 
 create table post (

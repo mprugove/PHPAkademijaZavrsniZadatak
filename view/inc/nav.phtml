@@ -21,8 +21,9 @@
             <li class="nav-item font-weight-bold align-right">
                 <a class="nav-link text-light" href="<?= URLROOT ?>user/register">Register</a>
             </li>
-                <?php else :?>
-            <?php if($_SESSION['user_type'] === '1') :?>
+            <?php else :?>
+
+            <?php if($currentUser = $_SESSION['user_type'] === '1') :?>
                 <li class="nav-item font-weight-bold align-right">
                     <a class="nav-link text-light" href="<?= URLROOT ?>userpage/"> Admin </a>
                     <?php else: ?>

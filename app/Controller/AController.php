@@ -20,6 +20,7 @@ abstract class AController
     {
         return $_SERVER['REQUEST_METHOD'] === 'POST';
     }
+
     protected function isGET(): bool
     {
         return $_SERVER['REQUEST_METHOD'] === 'GET';
