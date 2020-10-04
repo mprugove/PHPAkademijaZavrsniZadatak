@@ -11,7 +11,7 @@ class NewsController extends AController
 
     public function indexAction()
     {
-        return $this->view->render('news', [
+        return $this->view->render('/~polaznik17news', [
             'users' => User::getAll(),
             'news' => News::getAll(),
         ]);
@@ -19,14 +19,14 @@ class NewsController extends AController
     public function addAction()
     {
         if (!$this->isPOST() || !$this->auth->isLoggedIn()) {
-            header('Location: home ');
+            header('Location: /~polaznik17home ');
             return;
         }
 
         $newsContent = $_POST['new_post'] ?? '';
         $authUser = $this->auth->getCurrentUser()->getId();
         if (!$newsContent) {
-            header('Location: home');
+            header('Location: /~polaznik17/home');
             return;
         }
 
@@ -34,7 +34,7 @@ class NewsController extends AController
             'content' => $newsContent,
             'user_id' => $authUser
         ]);
-        header('Location: /news/');
+        header('Location: /~polaznik17/news/');
     }
 
     public function deleteAction()
