@@ -62,7 +62,7 @@
                     <?php endif; ?>
 
                     <?php if($_SESSION['user_type'] === '1' || $_SESSION['user_type'] != '2' || $currentUser):?>
-                        <th> <button class="btn btn-outline-danger">
+                        <th> <button class="btn btn-light btn-outline-danger">
                                 <a href="<?= URLROOT ?>rent/delete?id=<?= $car->getId() ?>" class="card-link text-dark">Cancel your subscription</a>
                             </button>
                         </th>

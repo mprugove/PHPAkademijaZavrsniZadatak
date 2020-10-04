@@ -12,16 +12,17 @@ class RentController extends AController
 
     public function indexAction()
     {
-        $getId=$_GET['id'] ?? null;
-        $data = [
-            'rents' => Rent::getAll(),
-            'users' => User::getAll(),
-            'user' => User::getOne('id', $getId),
-            'cars' => Car::getAll(),
-            'car' => Car::getOne('id', $getId)
-        ];
-        return $this->view->render('rent',$data);
-
+        if ($this->auth->isLoggedIn()) {
+            $getId = $_GET['id'] ?? null;
+            $data = [
+                'rents' => Rent::getAll(),
+                'users' => User::getAll(),
+                'user' => User::getOne('id', $getId),
+                'cars' => Car::getAll(),
+                'car' => Car::getOne('id', $getId)
+            ];
+            return $this->view->render('rent', $data);
+        } header('Location: http://phpacademy.inchoo.io/~polaznik17/');
     }
 
     public function addAction()
