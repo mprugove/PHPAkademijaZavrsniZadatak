@@ -11,7 +11,7 @@ class NewsController extends AController
 
     public function indexAction()
     {
-        return $this->view->render('/~polaznik17news', [
+        return $this->view->render('/~polaznik17/news', [
             'users' => User::getAll(),
             'news' => News::getAll(),
         ]);
@@ -19,7 +19,7 @@ class NewsController extends AController
     public function addAction()
     {
         if (!$this->isPOST() || !$this->auth->isLoggedIn()) {
-            header('Location: /~polaznik17home ');
+            header('Location: /~polaznik17/home ');
             return;
         }
 
