@@ -16,10 +16,10 @@ class ReviewController extends AController
     {
         $getId=$_GET['id'] ?? null;
         if( !$getId){
-            header('Location: /~polaznik17/');
+            header('Location: /');
             return;
         }
-        return $this->view->render('/~polaznik17/review', [
+        return $this->view->render('/review', [
             'cars'=>Car::getOne('id', $getId),
             'reviews'=>Review::getAvg('','id',$getId),
             'rentals'=>Rent::getOne('id',$getId),
@@ -30,7 +30,7 @@ class ReviewController extends AController
     public function addAction()
     {
         if (!$this->isPost() || !$this->auth->isLoggedIn()) {
-            header('Location: /~polaznik17/');
+            header('Location: /');
             return;
         }
 
@@ -41,6 +41,6 @@ class ReviewController extends AController
             'car_id' => $_POST['car_id'],
             'score' => $_POST['score'],
         ]);
-        header("Location: /~polaznik17/review");
+        header("Location: review");
     }
 }

@@ -15,7 +15,7 @@ class HomeController extends AController
             'users' => User::getAll(),
             'cars' => Car::getAll(),
         ];
-            return $this->view->render('home',$data);
+            return $this->view->render('http://phpacademy.inchoo.io/~polaznik17/home',$data);
     }
 
 //    public function searchAction()
