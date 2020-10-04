@@ -52,7 +52,7 @@
                     </form>
         <?php if ($currentUser && $currentUser->getId()): ?>
                             <?php if($_SESSION['user_type'] === '1' && $_SESSION['user_type'] != '2') : ?>
-                                <button class="btn btn-outline-danger btn-light py-3 px-3">
+                                <button class="btn btn-outline-danger btn-light my-3 mx-3">
                                     <a href="<?= URLROOT ?>/userpage/delete?id=<?= $user->getId() ?>" class="">Delete</a>
                                 </button>
                             <?php endif; ?>
