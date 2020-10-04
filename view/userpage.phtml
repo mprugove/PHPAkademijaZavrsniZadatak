@@ -48,7 +48,7 @@
                             </label>
         <?php if ($currentUser && $currentUser->getId()): ?>
                             <?php if($_SESSION['user_type'] === '1' || $_SESSION['user_type'] != '2') : ?>
-                                <button class="btn btn-outline-danger btn-light"><a href="<?= URLROOT ?>/userpage/delete?id=<?= $user->getId() ?>" class="">Delete</a></button>
+                                <button class="btn btn-outline-danger btn-light"><a href="<?= URLROOT ?>/delete?id=<?= $user->getId() ?>" class="">Delete</a></button>
                             <?php endif; ?>
                         </div>
             <?php endif; ?>
@@ -66,7 +66,7 @@
         <div class="container-flex py-5 w-25">
         <div class="row">
             <div class="col">
-                <form method="POST" action="<?= URLROOT ?>/userpage/registerSubmit">
+                <form method="POST" action="<?= URLROOT ?>userpage/registerSubmit">
                     <div class="form-group">
                         <label for="username">Username</label>
                         <input type="text" class="form-control" id="username" name="username" required>
