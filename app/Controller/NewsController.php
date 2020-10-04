@@ -41,7 +41,7 @@ class NewsController extends AController
     {
         $newsId = $_GET['id'] ?? null;
         if (!$newsId || !$this->auth->isLoggedIn()) {
-            header('Location: /news/');
+            header('Location: /~polaznik17/news/');
             return;
         }
 
@@ -49,6 +49,6 @@ class NewsController extends AController
         if ($news->getUserId() == $this->auth->getCurrentUser()->getId()) {
             News::delete('id', $newsId);
         }
-        header('Location: /news/');
+        header('Location: /~polaznik17/news/');
     }
 }
