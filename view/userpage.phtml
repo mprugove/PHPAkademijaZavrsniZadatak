@@ -21,7 +21,7 @@
                                 <label for="lastname">Last Name
                                 <h2><input type="text" class="form-control " value="<?= $user->getLastName()?>" name="lastname"readonly></h2>
                             </label>
-                    <form action="/userpage/update" method="POST" >
+                    <form action="<?= URLROOT ?>/userpage/update" method="POST" >
                             <div class="form-group w-25">
                                 <label for="pass">Current Password</label>
                                 <input type="text" class="form-control" id="pass" name="pass" required>
@@ -48,7 +48,7 @@
                             </label>
         <?php if ($currentUser && $currentUser->getId()): ?>
                             <?php if($_SESSION['user_type'] === '1' || $_SESSION['user_type'] != '2') : ?>
-                                <button class="btn btn-outline-danger btn-light"><a href="/userpage/delete?id=<?= $user->getId() ?>" class="">Delete</a></button>
+                                <button class="btn btn-outline-danger btn-light"><a href="<?= URLROOT ?>/userpage/delete?id=<?= $user->getId() ?>" class="">Delete</a></button>
                             <?php endif; ?>
                         </div>
             <?php endif; ?>
@@ -66,8 +66,7 @@
         <div class="container-flex py-5 w-25">
         <div class="row">
             <div class="col">
-                <form method="POST" action="/userpage/registerSubmit">
-                    <!--        <form method="POST" action="--><?//= URLROOT ?><!--user/registerSubmit">-->
+                <form method="POST" action="<?= URLROOT ?>/userpage/registerSubmit">
                     <div class="form-group">
                         <label for="username">Username</label>
                         <input type="text" class="form-control" id="username" name="username" required>
@@ -118,7 +117,7 @@
         <div class="container-flex py-5">
             <div class="row">
                 <div class="col w-25">
-                    <form action="/userpage" method="POST">
+                    <form action="<?= URLROOT ?>userpage" method="POST">
                         <label for="username">Username
                             <h2><input type="text" class="form-control" value="<?= $user->getUsername()?>" name="username" readonly></h2>
                         </label>

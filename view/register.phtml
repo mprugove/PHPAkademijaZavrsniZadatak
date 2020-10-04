@@ -1,7 +1,6 @@
 <?php include 'inc/header.phtml'; ?>
     <div class="container">
-        <form method="POST" action="/user/registerSubmit">
-<!--        <form method="POST" action="--><?//= URLROOT ?><!--user/registerSubmit">-->
+        <form method="POST" action="<?= URLROOT ?>user/registerSubmit">
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" class="form-control" id="username" name="username" required>
