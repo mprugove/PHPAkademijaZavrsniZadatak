@@ -11,7 +11,7 @@ class NewsController extends AController
 
     public function indexAction()
     {
-        return $this->view->render('/~polaznik17/news', [
+        return $this->view->render('news', [
             'users' => User::getAll(),
             'news' => News::getAll(),
         ]);
