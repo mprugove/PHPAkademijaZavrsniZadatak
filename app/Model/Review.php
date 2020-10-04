@@ -22,5 +22,4 @@ class Review extends Amodel
         }
         return parent::createObject($data);
     }
-
 }

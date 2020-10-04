@@ -84,8 +84,6 @@ abstract class AModel extends Data
     {
         $table = static::getTable();
         $sql = "SELECT *  FROM {$table} WHERE {$column} LIKE '{$value}'";
-
-
         $statement = Database::getInstance()->prepare($sql);
         $statement->execute();
 

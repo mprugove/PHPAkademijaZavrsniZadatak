@@ -34,7 +34,6 @@ create table if not exists review (
     on delete cascade
 );
 
-
 create table post (
     id int auto_increment not null primary key,
     content text,

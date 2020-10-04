@@ -8,7 +8,6 @@ class View
     public function render(string $template, array $args = []): string
     {
         $templateFileName = $this->getTemplateFileName($template);
-
         ob_start();
         try {
             extract($this->modifyArgs($args), EXTR_SKIP);

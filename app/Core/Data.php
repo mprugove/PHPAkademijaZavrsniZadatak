@@ -58,3 +58,4 @@ class Data
         return strtolower(trim(preg_replace('/([A-Z]|[0-9]+)/', "_$1", $name), '_'));
     }
 }
+

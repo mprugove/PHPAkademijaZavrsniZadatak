@@ -10,10 +10,8 @@ class Database extends \PDO
     private function __construct()
     {
         $dbConfig = Config::get('db');
-
         $dsn = 'mysql:host=' . $dbConfig['host'] . ';dbname=' . $dbConfig['name'] . ';charset=utf8';
         parent::__construct($dsn, $dbConfig['user'], $dbConfig['password']);
-
         $this->setAttribute(
             \PDO::ATTR_DEFAULT_FETCH_MODE,
             \PDO::FETCH_ASSOC

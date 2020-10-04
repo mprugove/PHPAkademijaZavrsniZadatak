@@ -116,6 +116,6 @@ class UserController extends AController
                 header('Location : /~polaznik17/');
                 return;
             }
-
-        }}
+        }
+    }
 }

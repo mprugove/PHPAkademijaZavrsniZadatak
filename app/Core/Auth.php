@@ -26,7 +26,6 @@ class Auth
         if (static::$instance === null) {
             self::$instance = new static();
         }
-
         return self::$instance;
     }
 

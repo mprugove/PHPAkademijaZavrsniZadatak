@@ -13,3 +13,4 @@ class AboutController extends AController
         ]);
     }
 }
+

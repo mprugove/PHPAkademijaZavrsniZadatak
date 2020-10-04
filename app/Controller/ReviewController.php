@@ -34,7 +34,6 @@ class ReviewController extends AController
             return;
         }
 
-
         $authUser = $this->auth->getCurrentUser()->getId();
 
         Review::insert([

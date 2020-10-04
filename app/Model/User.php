@@ -12,7 +12,4 @@ class User extends AModel
     {
         return $this->__get('pass');
     }
-
-
-
 }

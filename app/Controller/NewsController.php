@@ -46,7 +46,6 @@ class NewsController extends AController
         }
 
         $news = News::getOne('id', $newsId);
-
         if ($news->getUserId() == $this->auth->getCurrentUser()->getId()) {
             News::delete('id', $newsId);
         }

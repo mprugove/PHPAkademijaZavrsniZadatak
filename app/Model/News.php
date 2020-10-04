@@ -12,7 +12,6 @@ class News extends AModel
             $user = User::getOne('id', $userId );
             $data['user_name'] = "{$user->getFirstName()} {$user->getLastName()}";
             $data['user'] = "{$user->getUserType()}";
-
         }
         return parent::createObject($data);
     }

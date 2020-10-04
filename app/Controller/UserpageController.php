@@ -22,7 +22,7 @@ class UserpageController extends AController
             ]);
         }
     }
-    // admin delete
+    // admin delete 
     public function deleteAction()
     {
         $userId = $_GET['id'] ?? null;

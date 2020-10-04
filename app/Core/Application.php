@@ -6,9 +6,7 @@ class Application
 {
     protected $router;
 
-    public function __construct(
-        RouterInterface $router
-    ) {
+    public function __construct(RouterInterface $router) {
         $this->router = $router;
     }
 

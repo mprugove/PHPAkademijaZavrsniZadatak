@@ -13,7 +13,6 @@ define('URLROOT', 'http://phpacademy.inchoo.io/~polaznik17/');
 spl_autoload_register(function ($class) {
     $class = lcfirst($class);
     $filename = BP . DIRECTORY_SEPARATOR . str_replace('\\', DIRECTORY_SEPARATOR, $class) . '.php';
-
     if (file_exists($filename)) {
         require $filename;
     }
