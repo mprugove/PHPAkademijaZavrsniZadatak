@@ -34,14 +34,14 @@ class NewsController extends AController
             'content' => $newsContent,
             'user_id' => $authUser
         ]);
-        header('Location: ~polaznik17/news');
+        header('Location: news');
     }
 
     public function deleteAction()
     {
         $newsId = $_GET['id'] ?? null;
         if (!$newsId || !$this->auth->isLoggedIn()) {
-            header('Location: ~polaznik17/news');
+            header('Location: news');
             return;
         }
 
@@ -49,6 +49,6 @@ class NewsController extends AController
         if ($news->getUserId() == $this->auth->getCurrentUser()->getId()) {
             News::delete('id', $newsId);
         }
-        header('Location: ~polaznik17/news');
+        header('Location: news');
     }
 }
