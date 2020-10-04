@@ -21,6 +21,15 @@
                                 <label for="lastname">Last Name
                                 <h2><input type="text" class="form-control " value="<?= $user->getLastName()?>" name="lastname"readonly></h2>
                             </label>
+                            <label for="country">Country
+                                <h2><input type="text" class="form-control " value="<?= $user->getCountry()?>" name="country" readonly></h2>
+                            </label>
+                            <label for="pass">License number
+                                <h2><input type="text" class="form-control " value="<?= $user->getLicense()?>" name="license" readonly></h2>
+                            </label>
+                            <label for="usertype">User Type
+                                <h2><input type="text" class="form-control " value="<?= $user->getUserType()?>" name="usertype" readonly></h2>
+                            </label>
                     <form action="<?= URLROOT ?>/userpage/update" method="POST" >
                             <div class="form-group w-25">
                                 <label for="pass">Current Password</label>
@@ -37,15 +46,7 @@
                             <button class="btn btn-outline-primary btn-light" type="Submit">Update</button>
                             <input type="text" value="<?= $currentUser->getId() ?>" name="id" id="id" hidden>
                     </form>
-                            <label for="country">Country
-                                <h2><input type="text" class="form-control " value="<?= $user->getCountry()?>" name="country" readonly></h2>
-                            </label>
-                            <label for="pass">License number
-                                <h2><input type="text" class="form-control " value="<?= $user->getLicense()?>" name="license" readonly></h2>
-                            </label>
-                            <label for="usertype">User Type
-                                <h2><input type="text" class="form-control " value="<?= $user->getUserType()?>" name="usertype" readonly></h2>
-                            </label>
+
         <?php if ($currentUser && $currentUser->getId()): ?>
                             <?php if($_SESSION['user_type'] === '1' && $_SESSION['user_type'] != '2') : ?>
                                 <button class="btn btn-outline-danger btn-light"><a href="<?= URLROOT ?>/userpage/delete?id=<?= $user->getId() ?>" class="">Delete</a></button>

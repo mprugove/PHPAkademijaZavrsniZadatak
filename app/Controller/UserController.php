@@ -86,7 +86,7 @@ class UserController extends AController
         }
 
         $this->auth->login($user);
-        header('Location: /');
+        header('Location: http://phpacademy.inchoo.io/~polaznik17/');
     }
 
     protected function validateData(array $data, array $keys): bool

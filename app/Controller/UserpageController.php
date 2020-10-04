@@ -11,16 +11,18 @@ class UserpageController extends AController
 {
     public function indexAction()
     {
-        if($_SESSION['user_type'] === '1' || $_SESSION['user_type'] != '2') {
-            return $this->view->render('userpage', [
-                'users' => User::getAll('Username'),
+        if (!$this->auth->isLoggedIn()) {
+            if ($_SESSION['user_type'] === '1' && $_SESSION['user_type'] != '2') {
+                return $this->view->render('userpage', [
+                    'users' => User::getAll('Username'),
 
-            ]);
-        } else {
-            return $this->view->render('userpage', [
-                'users' => User::getAll('Username', [1, 1]),
-            ]);
-        }
+                ]);
+            } else {
+                return $this->view->render('userpage', [
+                    'users' => User::getAll('Username', [1, 1]),
+                ]);
+            }
+        } header('Location: http://phpacademy.inchoo.io/~polaznik17/');
     }
     // admin delete
     public function deleteAction()
