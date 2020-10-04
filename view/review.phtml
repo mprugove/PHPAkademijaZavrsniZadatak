@@ -27,7 +27,7 @@
 <?php if($currentUser) :?>
 <div class="row">
     <div class="col">
-        <form method="POST" action="/review/add">
+        <form method="POST" action="<?= URLROOT ?>review/add">
             <div class="form-group">
                 <label for="score">Leave a rating for <?= $cars->getCarName()?></label> <br>
                 <select name="score" id="score" class="form-control w-25">

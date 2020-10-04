@@ -5,7 +5,7 @@
         <div class="col">
             <input type="text"  value="<?= $currentUser->getFirstName() . ' ' . $currentUser->getLastName() ?>" disabled>
             <br> <br>
-            <form method="POST" action="/rent/add">
+            <form method="POST" action="<?= URLROOT ?>rent/add">
                 <label for="start_date">Date start :
                     <input type="date" name="start_date" id="start_date" class="form-control">
                 </label>
@@ -63,7 +63,7 @@
 
                     <?php if($_SESSION['user_type'] === '1' || $_SESSION['user_type'] != '2' || $currentUser):?>
                         <th> <button class="btn btn-outline-danger">
-                                <a href="rent/delete?id=<?= $car->getId() ?>" class="card-link text-dark">Cancel your subscription</a>
+                                <a href="<?= URLROOT ?>rent/delete?id=<?= $car->getId() ?>" class="card-link text-dark">Cancel your subscription</a>
                             </button>
                         </th>
                     <?php endif; ?>
