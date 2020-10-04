@@ -6,7 +6,7 @@
     </div>
 </div>
 <?php if($currentUser): ?>
-    <?php if($_SESSION['user_type'] === '1' || $_SESSION['user_type'] != '2'): ?>
+    <?php if($_SESSION['user_type'] === '1' && $_SESSION['user_type'] != '2'): ?>
         <?php foreach($users as $user) :?>
             <div class="container-flex py-5">
                 <div class="row">
@@ -47,7 +47,7 @@
                                 <h2><input type="text" class="form-control " value="<?= $user->getUserType()?>" name="usertype" readonly></h2>
                             </label>
         <?php if ($currentUser && $currentUser->getId()): ?>
-                            <?php if($_SESSION['user_type'] === '1' || $_SESSION['user_type'] != '2') : ?>
+                            <?php if($_SESSION['user_type'] === '1' && $_SESSION['user_type'] != '2') : ?>
                                 <button class="btn btn-outline-danger btn-light"><a href="<?= URLROOT ?>/userpage/delete?id=<?= $user->getId() ?>" class="">Delete</a></button>
                             <?php endif; ?>
                         </div>
