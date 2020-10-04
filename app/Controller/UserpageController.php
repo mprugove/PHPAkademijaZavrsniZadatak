@@ -37,7 +37,7 @@ class UserpageController extends AController
             return $this->view->render('userpage');
         }
 
-        header('Location: home');
+        header('Location: /~polaznik17/home');
     }
 
     public function registerSubmitAction()
@@ -48,11 +48,11 @@ class UserpageController extends AController
         }
         $requiredKeys = ['first_name', 'last_name', 'email', 'pass', 'confirm_pass'];
         if(!$this->validateData($_POST, $requiredKeys)) {
-            header('Location: user/register');
+            header('Location: /~polaznik17/user/register');
         }
 
         if ($_POST['pass'] !== $_POST['confirm_pass']) {
-            header('Location: user/register');
+            header('Location: /~polaznik17/user/register');
             return;
         }
 
@@ -60,7 +60,7 @@ class UserpageController extends AController
 
         if ($user->getId()) {
             // check if exists
-            header('Location: user/register');
+            header('Location: /~polaznik17/user/register');
             return;
         }
 
@@ -75,7 +75,7 @@ class UserpageController extends AController
             'join_date' => $_POST['join_date'] ?? null,
 
         ]);
-        header('Location: userpage');
+        header('Location: /~polaznik17/userpage');
     }
 
     public function updateAction()
@@ -85,7 +85,7 @@ class UserpageController extends AController
             if($_POST['new_pass'] === $_POST['confirm_new_pass'])
             {
                 User::update('pass',$_POST['id'],password_hash($_POST['new_pass'], PASSWORD_DEFAULT));
-                header('Location: userpage');
+                header('Location: /~polaznik17/userpage');
                 return;
             }
         }

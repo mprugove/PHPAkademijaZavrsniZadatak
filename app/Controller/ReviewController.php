@@ -41,6 +41,6 @@ class ReviewController extends AController
             'car_id' => $_POST['car_id'],
             'score' => $_POST['score'],
         ]);
-        header("Location: review");
+        header("Location: /~polaznik17/review");
     }
 }
