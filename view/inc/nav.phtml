@@ -4,19 +4,19 @@
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto pl-5 mt-2 mt-lg-0 ">
             <li class="nav-item font-weight-bold ">
-               <a class="nav-link text-light" href="<?= URLROOT ?>home">Home</a>
+               <a class="nav-link text-light" href="<?= URLROOT ?>">Home</a>
             </li>
             <li class="nav-item font-weight-bold">
-                <a class="nav-link text-light" href="<?= URLROOT ?>news/">News</a>
+                <a class="nav-link text-light" href="<?= URLROOT ?>news">News</a>
             </li>
             <?php if($currentUser) :?>
             <li class="nav-item font-weight-bold">
-                <a class="nav-link text-light" href="<?= URLROOT ?>rent/">Rent</a>
+                <a class="nav-link text-light" href="<?= URLROOT ?>rent">Rent</a>
             </li>
             <?php endif; ?>
             <li class="nav-item font-weight-bold">
 
-               <a class="nav-link text-light" href="<?= URLROOT ?>about/">About</a>
+               <a class="nav-link text-light" href="<?= URLROOT ?>about">About</a>
             </li>
         </ul>
         <ul class="navbar-nav mx-4">
@@ -31,10 +31,10 @@
 
             <?php if($_SESSION['user_type'] === '1' || $_SESSION['user_type'] != '2') :?>
                 <li class="nav-item font-weight-bold align-right">
-                    <a class="nav-link text-light" href="<?= URLROOT ?>userpage/"> Admin </a>
+                    <a class="nav-link text-light" href="<?= URLROOT ?>userpage"> Admin </a>
                     <?php else: ?>
                     <li class="nav-item font-weight-bold align-right">
-                        <a class="nav-link text-light" href="<?= URLROOT ?>userpage/"> Userpage </a>
+                        <a class="nav-link text-light" href="<?= URLROOT ?>userpage"> Userpage </a>
                 </li>
 
             <?php endif; ?>
