@@ -28,13 +28,13 @@ class UserpageController extends AController
         $userId = $_GET['id'] ?? null;
         User::delete('id', $userId);
 
-        header('Location: userpage');
+        header('Location: /~polaznik17/userpage');
     }
 
     public function registerAction()
     {
         if (!$this->auth->isLoggedIn()) {
-            return $this->view->render('userpage');
+            return $this->view->render('/~polaznik17/userpage');
         }
 
         header('Location: /~polaznik17/home');
@@ -73,6 +73,7 @@ class UserpageController extends AController
             'country' => $_POST['country'] ?? null,
             'license' => $_POST['license'] ?? null,
             'join_date' => $_POST['join_date'] ?? null,
+            'user_type' => $_POST['user_type'] ?? null,
 
         ]);
         header('Location: /~polaznik17/userpage');

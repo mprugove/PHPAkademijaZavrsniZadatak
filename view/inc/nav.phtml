@@ -29,7 +29,7 @@
             </li>
                 <?php else :?>
 
-            <?php if($_SESSION['user_type'] === 'Admin' || $_SESSION['user_type'] != 'User') :?>
+            <?php if($_SESSION['user_type'] === '1' || $_SESSION['user_type'] != '2') :?>
                 <li class="nav-item font-weight-bold align-right">
                     <a class="nav-link text-light" href="<?= URLROOT ?>userpage"> Admin </a>
                     <?php else: ?>
