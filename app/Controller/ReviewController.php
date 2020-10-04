@@ -16,7 +16,7 @@ class ReviewController extends AController
     {
         $getId=$_GET['id'] ?? null;
         if( !$getId){
-            header('Location: /');
+            header('Location: /~polaznik17/home');
             return;
         }
         return $this->view->render('/review', [
@@ -30,7 +30,7 @@ class ReviewController extends AController
     public function addAction()
     {
         if (!$this->isPost() || !$this->auth->isLoggedIn()) {
-            header('Location: /');
+            header('Location: /~polaznik17/home');
             return;
         }
 
