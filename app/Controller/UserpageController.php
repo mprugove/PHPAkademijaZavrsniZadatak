@@ -11,7 +11,7 @@ class UserpageController extends AController
 {
     public function indexAction()
     {
-        if (!$this->auth->isLoggedIn()) {
+        if ($this->auth->isLoggedIn()) {
             if ($_SESSION['user_type'] === '1' && $_SESSION['user_type'] != '2') {
                 return $this->view->render('userpage', [
                     'users' => User::getAll('Username'),

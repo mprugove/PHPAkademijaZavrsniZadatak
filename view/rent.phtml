@@ -34,7 +34,7 @@
 <?php foreach ($rents as $car): ?>
     <div class="col">
         <div class="row">
-            <table class="table table-hover table-light table-sm">
+            <table class="table table-hover table-dark table-sm">
                 <thead>
                 <tr>
                     <th>Car</th>
@@ -42,7 +42,7 @@
                     <th>Loan start date</th>
                     <th>Loan end date</th>
                     <?php if($_SESSION['user_type'] === '1' || $_SESSION['user_type'] != '2' || $currentUser):?>
-                        <th>Delete</th>
+                        <th>Cancel</th>
                     <?php endif; ?>
                 </tr>
                 </thead>
