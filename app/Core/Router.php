@@ -7,6 +7,7 @@ class Router implements RouterInterface
     public function exact( $pathInfo)
     {
         $pathInfo = trim($pathInfo, '/');
+        str_replace('~polaznik17/', '', $pathInfo);
         $parts = $pathInfo ?
             explode('/', $pathInfo)
             : [];

@@ -7,41 +7,32 @@
         <hr class="my-4 hr">
     </div>
 </div>
+<!--<form class="form-inline my-2 my-lg-0 py-3" method="POST" name="search" id="search" action="/home/search">-->
+<!--    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--    <button class="btn btn-outline-dark btn-light my-2 my-sm-0" type="submit">Search</button>-->
+<!--</form>-->
 
-<?php if ($currentUser): ?>
-    <?php if ($_SESSION['user_type'] === '1'): ?>
-
-        <form method="POST" action="/post/create">
-            <div class="form-group">
-                <label for="new_post" class="py-3" ><input type="text" value="Create news" class="font-weight-bold form-control" disabled></label>
-                <textarea class="form-control" id="new_post" name="new_post" rows="3" placeholder="Create news"></textarea>
-                <button type="submit" class="btn btn-outline-dark btn-light my-4 py-3 px-5">Post</button>
-            </div>
-        </form>
-<?php endif; ?>
-<?php endif; ?>
-    <hr>
-<?php foreach ($posts as $post): ?>
-
+<?php foreach($cars as $car) : ?>
+<div class="col-md-12">
     <div class="row">
-        <div class="col-lg bg-dark rounded">
-            <div class="card rounded card-color">
-                <div class="card-body">
-                    <h6 class="card-subtitle mb-2 text-muted"><?= $post->getUserName() ?> (<?= $post->getDate() ?>)</h6>
-                    <p class="card-text"><?= htmlspecialchars($post->getContent()) ?></p>
-                    <?php if ($currentUser && $currentUser->getId() == $post->getUserId()): ?>
-                        <button class="btn btn-outline-danger ">
-                            <a href="/post/delete?id=<?= $post->getId() ?>" class="card-link text-dark">Delete</a>
-                        </button>
-                    <button class="btn btn-outline-primary">
-<!--                        unfinished-->
-                        <a href="/update?id=<?= $post->getId() ?>" class="card-link text-dark">Update</a>
-                    </button>
-                    <?php endif; ?>
-                </div>
-            </div>
+        <div class="col-md-6">
+            <table>
+                <tr>
+                    <th>
+                        <a href="review/?id=<?= $car->getId() ?>" class="card-link">
+                            <figure class="figure">
+                                <img src="../img/<?=$car->getId()?>.jpg" width="180" height="268" class="rounded img-responsive">
+                            </figure>
+                            <p><?= htmlspecialchars($car->getCarName()) ?></p></a>
+                    </th>
+                </tr>
+            </table>
+
         </div>
     </div>
+</div>
+
 <?php endforeach; ?>
+
 
 <?php include 'inc/footer.phtml'; ?>

@@ -58,7 +58,7 @@ abstract class AModel extends Data
     public static function getAll(string $orderBy = null, array $limit = []): array
     {
         $table = static::getTable();
-        $sql = "SELECT * FROM {$table}";
+        $sql = "SELECT *  FROM {$table}";
 
         if ($orderBy) {
             $sql .= " ORDER BY {$orderBy}";
@@ -68,7 +68,43 @@ abstract class AModel extends Data
             $sql .= " LIMIT {$limit[0]}, {$limit[1]}";
         }
 
+
+
         $statement = Database::getInstance()->prepare($sql);
+        $statement->execute();
+
+        $models = [];
+        while ($row = $statement->fetch()) {
+            $models[] = static::createObject($row);
+        }
+        return $models;
+    }
+
+    public static function getSearch(string $column, $value): array
+    {
+        $table = static::getTable();
+        $sql = "SELECT *  FROM {$table} WHERE {$column} LIKE '{$value}'";
+
+
+        $statement = Database::getInstance()->prepare($sql);
+        $statement->execute();
+
+        $models = [];
+        while ($row = $statement->fetch()) {
+            $models[] = static::createObject($row);
+        }
+        return $models;
+    }
+    public static function getAvg(string $avg = null,string $column, $value): array
+    {
+        $table = static::getTable();
+        $sql = "SELECT * FROM {$table} WHERE {$column} = :value";
+        if ($avg) {
+            $sql .= " AVG {$avg}";
+        }
+
+        $statement = Database::getInstance()->prepare($sql);
+        $statement->bindValue('value', $value);
         $statement->execute();
 
         $models = [];
@@ -103,7 +139,14 @@ abstract class AModel extends Data
         return $db->lastInsertId(static::getTable());
     }
 
-    // update
+    public static function update(string $column, $id, $value)
+    {
+        $table = static::getTable();
+        $sql = "UPDATE {$table} SET {$column} = '{$value}' WHERE id = {$id} ";
+        $statement = Database::getInstance()->prepare($sql);
+        $statement->bindValue('value', $value);
+        $statement->execute();
+    }
 
     public static function delete(string $column, $value)
     {
