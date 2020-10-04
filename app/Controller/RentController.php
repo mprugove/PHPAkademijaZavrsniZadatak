@@ -20,7 +20,7 @@ class RentController extends AController
             'cars' => Car::getAll(),
             'car' => Car::getOne('id', $getId)
         ];
-        return $this->view->render('/rent',$data);
+        return $this->view->render('rent',$data);
 
     }
 
@@ -40,14 +40,14 @@ class RentController extends AController
             'car_id' => $_POST['car_id'],
 
         ]);
-        header("Location: rent");
+        header("Location: /~polaznik17/rent");
     }
 
     public function deleteAction()
     {
         $rentId = $_GET['id'] ?? null;
         if (!$rentId || !$this->auth->isLoggedIn()) {
-            header('Location: rent');
+            header('Location: /~polaznik17/rent');
             return;
         }
         $rent = Rent::getOne('id', $rentId);
@@ -55,6 +55,6 @@ class RentController extends AController
         if ($rent->getUserId() == $this->auth->getCurrentUser()->getId()) {
             Rent::delete('id', $rentId);
         }
-        header('Location: rent');
+        header('Location: /~polaznik17/rent');
     }
 }
