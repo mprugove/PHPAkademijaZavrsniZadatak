@@ -11,7 +11,7 @@ class NewsController extends AController
 
     public function indexAction()
     {
-        return $this->view->render('news', [
+        return $this->view->render('http://phpacademy.inchoo.io/~polaznik17/news', [
             'users' => User::getAll(),
             'news' => News::getAll(),
         ]);
@@ -19,7 +19,7 @@ class NewsController extends AController
     public function addAction()
     {
         if (!$this->isPOST() || !$this->auth->isLoggedIn()) {
-            header('Location: /');
+            header('Location: http://phpacademy.inchoo.io/~polaznik17/ ');
             return;
         }
 
@@ -34,14 +34,14 @@ class NewsController extends AController
             'content' => $newsContent,
             'user_id' => $authUser
         ]);
-        header('Location: /news');
+        header('Location: http://phpacademy.inchoo.io/~polaznik17/news');
     }
 
     public function deleteAction()
     {
         $newsId = $_GET['id'] ?? null;
         if (!$newsId || !$this->auth->isLoggedIn()) {
-            header('Location: news');
+            header('Location: http://phpacademy.inchoo.io/~polaznik17/news');
             return;
         }
 
@@ -49,6 +49,6 @@ class NewsController extends AController
         if ($news->getUserId() == $this->auth->getCurrentUser()->getId()) {
             News::delete('id', $newsId);
         }
-        header('Location: news');
+        header('Location: http://phpacademy.inchoo.io/~polaznik17/news');
     }
 }
