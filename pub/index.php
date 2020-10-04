@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 
 define('BP', dirname(__DIR__));
 define('APPNAME', 'Rent a Car!');
-define('APPTITLE', 'Rental');
+define('APPTITLE', 'Rent');
 define('APPVERSION', '1.0.0');
 define('URLROOT', 'http://phpacademy.inchoo.io/~polaznik17/');
 

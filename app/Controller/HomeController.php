@@ -2,19 +2,29 @@
 
 namespace App\Controller;
 
-use App\Model\Post;
-use App\Model\User;
 
+use App\Model\User;
+use App\Model\Car;
 
 class HomeController extends AController
 {
     public function indexAction()
         {
+
             $data = [
-            'posts' => Post::getAll(),
             'users' => User::getAll(),
+            'cars' => Car::getAll(),
         ];
-            return $this->view->render('home',$data);
+            return $this->view->render('/~polaznik17/home',$data);
     }
+
+//    public function searchAction()
+//    {
+//        $data =[
+//            'cars' => Car::getSearch('car_name',$_POST['search'])
+//        ];
+//        return $this->view->render('home', $data);
+//    }
+
 
 } 

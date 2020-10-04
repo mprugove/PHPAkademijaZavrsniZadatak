@@ -1,18 +1,12 @@
 <?php include 'inc/header.phtml'; ?>
-
-<div class="container py-3">
-    <div class="jumbotron jumbotron-fluid mx-5 rounded jumbo">
-        <h1 class="display-4 ">Car rental website</h1>
-        <p id="fade" class="lead">Welcome to our car rental website, checkout news and offers</p>
-        <hr class="my-4 hr">
-    </div>
-</div>
-
+<hr>
 <?php if ($currentUser): ?>
-    <?php if ($_SESSION['user_type'] === '1'): ?>
-        <form method="POST" action="<?= URLROOT ?>/post/create">
+    <?php if ($_SESSION['user_type'] === '1' || $_SESSION['user_type'] != '2'): ?>
+
+        <form method="POST" action="/news/add">
             <div class="form-group">
-                <label for="new_post" class="py-3" ><input type="text" value="Create news" class="font-weight-bold form-control" disabled></label>
+                <label for="new_post" class="py-3" ></label>
+                <input type="text" value="Create news" class="font-weight-bold form-control" disabled>
                 <textarea class="form-control" id="new_post" name="new_post" rows="3" placeholder="Create news"></textarea>
                 <button type="submit" class="btn btn-outline-dark btn-light my-4 py-3 px-5">Post</button>
             </div>
@@ -20,27 +14,21 @@
     <?php endif; ?>
 <?php endif; ?>
     <hr>
-<?php foreach ($posts as $post): ?>
-
+<?php foreach ($news as $post): ?>
     <div class="row">
         <div class="col-lg bg-dark rounded">
             <div class="card rounded card-color">
                 <div class="card-body">
                     <h6 class="card-subtitle mb-2 text-muted"><?= $post->getUserName() ?> (<?= $post->getDate() ?>)</h6>
                     <p class="card-text"><?= htmlspecialchars($post->getContent()) ?></p>
-                    <?php if ($currentUser == $post->getUserId()): ?>
+                    <?php if ($currentUser && $currentUser->getId() == $post->getUserId()): ?>
                         <button class="btn btn-outline-danger ">
-                            <a href="<?= URLROOT ?>/post/delete?id=<?= $post->getId() ?>" class="card-link text-dark">Delete</a>
+                            <a href="news/delete?id=<?= $post->getId() ?>" class="card-link text-dark">Delete</a>
                         </button>
-                    <button class="btn btn-outline-primary">
-<!--  unfinished-->
-                        <a href="<?= URLROOT ?>/update?id=<?= $post->getId() ?>" class="card-link text-dark">Update</a>
-                    </button>
                     <?php endif; ?>
                 </div>
             </div>
         </div>
     </div>
 <?php endforeach; ?>
-
 <?php include 'inc/footer.phtml'; ?>

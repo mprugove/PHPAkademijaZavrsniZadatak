@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-class Post extends AModel
+class News extends AModel
 {
     protected static $table = 'post';
 
