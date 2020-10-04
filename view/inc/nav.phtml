@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-dark nav-rounded">
+    <a class="navbar-brand pl-5 text-light hover" href="<?= URLROOT ?>home/"><?= APPTITLE ?></a>
+
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto pl-5 mt-2 mt-lg-0 ">
+            <li class="nav-item font-weight-bold ">
+               <a class="nav-link text-light" href="<?= URLROOT ?>home/">Home</a>
+            </li>
+            <li class="nav-item font-weight-bold">
+                <a class="nav-link text-light" href="<?= URLROOT ?>news/">News</a>
+            </li>
+            <?php if($currentUser) :?>
+            <li class="nav-item font-weight-bold">
+                <a class="nav-link text-light" href="<?= URLROOT ?>rent/">Rent</a>
+            </li>
+            <?php endif; ?>
+            <li class="nav-item font-weight-bold">
+
+               <a class="nav-link text-light" href="<?= URLROOT ?>about/">About</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav mx-4">
+            <?php if ($currentUser === null): ?>
+            <li class="nav-item font-weight-bold align-right">
+                <a class="nav-link text-light" href="><?= URLROOT ?>user/login">Login</a>
+            </li>
+            <li class="nav-item font-weight-bold align-right">
+                <a class="nav-link text-light" href="><?= URLROOT ?>user/register">Register</a>
+            </li>
+                <?php else :?>
+
+            <?php if($_SESSION['user_type'] === '1' || $_SESSION['user_type'] != '2') :?>
+                <li class="nav-item font-weight-bold align-right">
+                    <a class="nav-link text-light" href="<?= URLROOT ?>userpage/"> Admin </a>
+                    <?php else: ?>
+                    <li class="nav-item font-weight-bold align-right">
+                        <a class="nav-link text-light" href="<?= URLROOT ?>userpage/"> Userpage </a>
+                </li>
+
+            <?php endif; ?>
+
+            <li class="nav-item font-weight-bold align-right">
+               <a class="nav-link text-light" href="<?= URLROOT ?>user/logout">Logout</a>
+            </li>
+                <?php endif; ?>
+            <li class="nav-item font-weight-bold align-right">
+                <span class="nav-link text-light"> <?= date('d.m.Y') ?> </span>
+            </li>
+        </ul>
+    </div>
+</nav>

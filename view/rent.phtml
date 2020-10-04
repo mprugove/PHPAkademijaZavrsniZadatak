@@ -1,0 +1,77 @@
+<?php include 'inc/header.phtml'; ?>
+    <hr>
+<?php if($currentUser) :?>
+    <div class="row w-25">
+        <div class="col">
+            <input type="text"  value="<?= $currentUser->getFirstName() . ' ' . $currentUser->getLastName() ?>" disabled>
+            <br> <br>
+            <form method="POST" action="<?= URLROOT ?>rent/add">
+                <label for="start_date">Date start :
+                    <input type="date" name="start_date" id="start_date" class="form-control">
+                </label>
+                <label for="end_date">Date end :
+                    <input type="date" name="end_date" id="end_date" class="form-control">
+                </label>
+                <br>
+                <span><p>Select Car :</p></span>
+                <div class="col">
+
+                    <?php foreach($cars as $car) : ?>
+                        <input type="checkbox" class="form-check-input " name="car_id" id="car_id" value="<?= $car->getId() ?>">
+                        <option ><?= $car->getManufacturer() . ' ' . $car->getCarName() ?></option>
+                    <?php endforeach; ?>
+                </div>
+                <br>
+                <label for="user_id">
+                    <input type="text" name="user_id" id="user_id" value="<?= $currentUser->getId() ?> " hidden>
+                </label>
+                <button type="submit" class="btn btn-outline-primary">Rent!</button>
+            </form>
+        </div>
+    </div>
+<?php endif; ?>
+    <br>
+<?php foreach ($rents as $car): ?>
+    <div class="col">
+        <div class="row">
+            <table class="table table-hover table-light table-sm">
+                <thead>
+                <tr>
+                    <th>Car</th>
+                    <th>Manufacturer</th>
+                    <th>Loan start date</th>
+                    <th>Loan end date</th>
+                    <?php if($_SESSION['user_type'] === '1' || $_SESSION['user_type'] != '2' || $currentUser):?>
+                        <th>Delete</th>
+                    <?php endif; ?>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><?= $car->getCarName()?></td>
+                    <td><?= $car->getCarManufacturer()?></td>
+                    <?php if($car->getStartDate() === '0000-00-00'):?>
+                        <td>N/A</td>
+                    <?php else: ?>
+                        <td><?= $car->getStartDate()?></td>
+                    <?php endif; ?>
+                    <?php if($car->getEndDate() === '0000-00-00'):?>
+                        <td>N/A</td>
+                    <?php else: ?>
+                        <td><?= $car->getEndDate()?></td>
+                    <?php endif; ?>
+
+                    <?php if($_SESSION['user_type'] === '1' || $_SESSION['user_type'] != '2' || $currentUser):?>
+                        <th> <button class="btn btn-outline-danger">
+                                <a href="<?= URLROOT ?>rent/delete?id=<?= $car->getId() ?>" class="card-link text-dark">Cancel your subscription</a>
+                            </button>
+                        </th>
+                    <?php endif; ?>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+<?php endforeach; ?>
+<?php include 'inc/footer.phtml'; ?>

@@ -8,7 +8,7 @@ class AboutController extends AController
 {
     public function indexAction()
     {
-        return $this->view->render('/~polaznik17/about', [
+        return $this->view->render('http://phpacademy.inchoo.io/~polaznik17/about', [
             'users' => User::getAll()
         ]);
     }

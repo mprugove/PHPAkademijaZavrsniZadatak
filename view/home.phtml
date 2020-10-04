@@ -1,0 +1,38 @@
+<?php include 'inc/header.phtml'; ?>
+
+<div class="container py-3">
+    <div class="jumbotron jumbotron-fluid mx-5 rounded jumbo">
+        <h1 class="display-4 ">Car rental website</h1>
+        <p id="fade"class="lead">Welcome to our car rental website, checkout news and offers</p>
+        <hr class="my-4 hr">
+    </div>
+</div>
+<!--<form class="form-inline my-2 my-lg-0 py-3" method="POST" name="search" id="search" action="/home/search">-->
+<!--    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--    <button class="btn btn-outline-dark btn-light my-2 my-sm-0" type="submit">Search</button>-->
+<!--</form>-->
+
+<?php foreach($cars as $car) : ?>
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-6">
+            <table>
+                <tr>
+                    <th>
+                        <a href="review/?id=<?= $car->getId() ?>" class="card-link">
+                            <figure class="figure">
+                                <img src="../img/<?=$car->getId()?>.jpg" width="180" height="268" class="rounded img-responsive">
+                            </figure>
+                            <p><?= htmlspecialchars($car->getCarName()) ?></p></a>
+                    </th>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<?php endforeach; ?>
+
+
+<?php include 'inc/footer.phtml'; ?>
