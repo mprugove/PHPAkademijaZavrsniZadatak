@@ -14,7 +14,7 @@ class UserController extends AController
             return $this->view->render('login');
         }
 
-        header('Location: /');
+        header('Location: http://phpacademy.inchoo.io/~polaznik17/');
     }
 
     public function registerAction()
@@ -23,7 +23,7 @@ class UserController extends AController
             return $this->view->render('register');
         }
 
-        header('Location: /');
+        header('Location: http://phpacademy.inchoo.io/~polaznik17/');
     }
 
     public function registerSubmitAction()
@@ -35,11 +35,11 @@ class UserController extends AController
         }
         $requiredKeys = ['first_name', 'last_name', 'email', 'pass', 'confirm_pass'];
         if(!$this->validateData($_POST, $requiredKeys)) {
-            header('Location: /user/register');
+            header('Location: http://phpacademy.inchoo.io/~polaznik17/user/register');
         }
 
         if ($_POST['pass'] !== $_POST['confirm_pass']) {
-            header('Location: /user/register');
+            header('Location: http://phpacademy.inchoo.io/~polaznik17/user/register');
             return;
         }
 
@@ -47,7 +47,7 @@ class UserController extends AController
 
         if ($user->getId()) {
             // check if exists
-            header('Location: /user/register');
+            header('Location: http://phpacademy.inchoo.io/~polaznik17/user/register');
             return;
         }
 
@@ -62,31 +62,31 @@ class UserController extends AController
             'join_date' => $_POST['join_date'] ?? null,
 
         ]);
-        header('Location: /user/login');
+        header('Location: http://phpacademy.inchoo.io/~polaznik17/user/login');
     }
 
     public function loginSubmitAction()
     {
         if (!$this->isPOST() || $this->auth->isLoggedIn()) {
-            header('Location: /');
+            header('Location: http://phpacademy.inchoo.io/~polaznik17/');
             return;
         }
 
         $requiredKeys = ['email', 'pass'];
         if (!$this->validateData($_POST, $requiredKeys)) {
-            header('Location: /user/login');
+            header('Location: http://phpacademy.inchoo.io/~polaznik17/user/login');
             return;
         }
 
         $user = User::getOne('email', $_POST['email']);
 
         if (!$user->getId() || !password_verify($_POST['pass'], $user->getPass())) {
-            header('Location: /user/login');
+            header('Location: http://phpacademy.inchoo.io/~polaznik17/user/login');
             return;
         }
 
         $this->auth->login($user);
-        header('Location: /');
+        header('Location: http://phpacademy.inchoo.io/~polaznik17/');
     }
 
     protected function validateData(array $data, array $keys): bool
@@ -106,7 +106,7 @@ class UserController extends AController
             $this->auth->logout();
         }
 
-        header('Location: /');
+        header('Location: http://phpacademy.inchoo.io/~polaznik17/');
     }
 
     public function updateAction()
@@ -114,7 +114,7 @@ class UserController extends AController
         if($this->auth->isLoggedIn()) {
             if ($_POST['new_pass'] === $_POST['confirm_new_pass']) {
                 User::update('pass', $_POST['id'], password_hash($_POST['new_pass'], PASSWORD_DEFAULT));
-                header('Location : /');
+                header('Location : http://phpacademy.inchoo.io/~polaznik17/');
                 return;
             }
         }
