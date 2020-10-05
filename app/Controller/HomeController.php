@@ -10,10 +10,11 @@ class HomeController extends AController
 {
     public function indexAction()
         {
-
+            $getId=$_GET['id'] ?? null;
             $data = [
             'users' => User::getAll(),
             'cars' => Car::getAll(),
+            'car' => Car::getOne('id', $getId),
         ];
             return $this->view->render('home',$data);
     }
