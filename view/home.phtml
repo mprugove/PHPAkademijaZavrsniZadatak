@@ -11,13 +11,14 @@
     <div class="row">
     <?php foreach($cars as $car):?>
         <div class="col-md-4">
-        <ul class="list-group ">
-        <li class="list-group-item border-0 mx-4">
-            <a href="review/?id=<?= $car->getId()?>" class="card-link">
-            <img src="/~polaznik17/img/<?=$car->getId() ?>.jpg" width="250" height="300" class="rounded img-responsive">
-                <p><?= htmlspecialchars($car->getCarName()) ?></p>
-            </a>
-        </li>
+            <ul class="list-group ">
+                <li class="list-group-item border-0 mx-4">
+                    <a href="review/?id=<?= $car->getId()?>" class="card-link">
+                    <img src="/~polaznik17/img/<?=$car->getId() ?>.jpg" width="250" height="300" class="rounded img-responsive">
+                        <p><?= htmlspecialchars($car->getCarName()) ?></p>
+                    </a>
+                </li>
+            </ul>
         </div>
         <?php endforeach;?>
     </div>
