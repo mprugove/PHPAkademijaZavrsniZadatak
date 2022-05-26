@@ -6,7 +6,7 @@
     </div>
 </div>
 <?php if($currentUser): ?>
-    <?php if($_SESSION['user_type'] === '1' && $_SESSION['user_type'] != '2'): ?>
+    <?php if($_SESSION['user_type'] === 'Admin' && $_SESSION['user_type'] != 'User'): ?>
         <?php foreach($users as $user) :?>
             <div class="container-flex py-5">
                 <div class="row">
@@ -51,7 +51,7 @@
                             <input type="text" value="<?= $currentUser->getId() ?>" name="id" id="id" hidden>
                     </form>
         <?php if ($currentUser && $currentUser->getId()): ?>
-                            <?php if($_SESSION['user_type'] === '1' && $_SESSION['user_type'] != '2') : ?>
+                            <?php if($_SESSION['user_type'] === 'Admin' && $_SESSION['user_type'] != 'User') : ?>
                                 <button class="btn btn-outline-danger btn-light my-3">
                                     <a href="<?= URLROOT ?>/userpage/delete?id=<?= $user->getId() ?>" class="">Delete</a>
                                 </button>
@@ -63,62 +63,75 @@
             </div>
         <hr>
         <?php endforeach; ?>
-        <div class="container-flex">
-            <div>
-                <h1 class="display-5 pt-5">Add new user</h1>
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addUser">
+            <h1 class="">Add new user</h1>
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addUserLabel">Add new user</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col">
+                        <form method="POST" action="<?= URLROOT ?>userpage/registerSubmit">
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" class="form-control" id="username" name="username" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="firstname">First Name</label>
+                                <input type="text" class="form-control" id="firstname" name="firstname">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastname">Last Name</label>
+                                <input type="text" class="form-control" id="lastname" name="lastname">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-mail</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pass">Password</label>
+                                <input type="password" class="form-control" id="pass" name="pass" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm_pass">Confirm Password</label>
+                                <input type="password" class="form-control" id="confirm_pass" name="confirm_pass" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Country</label>
+                                <input type="text" class="form-control" id="country" name="country">
+                            </div>
+                            <div class="form-group">
+                                <label for="license">Driving License</label>
+                                <input type="text" class="form-control" id="license" name="license">
+                            </div>
+                            <div class="form-group">
+                                <label for="user_type">User type</label>
+                                <select name="user_type" id="user_type" class="custom-select">
+                                    <option value="Admin">Admin</option>
+                                    <option value="User">User</option>
+                                </select>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="Submit" class="btn btn-primary">Add user</button>
+                            </div>  
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="container-flex py-5 w-25">
-        <div class="row">
-            <div class="col">
-                <form method="POST" action="<?= URLROOT ?>userpage/registerSubmit">
-                    <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="firstname">First Name</label>
-                        <input type="text" class="form-control" id="firstname" name="firstname">
-                    </div>
-                    <div class="form-group">
-                        <label for="lastname">Last Name</label>
-                        <input type="text" class="form-control" id="lastname" name="lastname">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">E-mail</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="pass">Password</label>
-                        <input type="password" class="form-control" id="pass" name="pass" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="confirm_pass">Confirm Password</label>
-                        <input type="password" class="form-control" id="confirm_pass" name="confirm_pass" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="country">Country</label>
-                        <input type="text" class="form-control" id="country" name="country">
-                    </div>
-                    <div class="form-group">
-                        <label for="license">Driving License</label>
-                        <input type="text" class="form-control" id="license" name="license">
-                    </div>
-                    <div class="form-group">
-                        <label for="user_type">User type</label>
-                        <select name="user_type" id="user_type" class="custom-select">
-                            <option value="Admin">Admin</option>
-                            <option value="User">User</option>
-                        </select>
-                    </div>
-                    <button type="Submit" class="btn btn-light btn-outline-primary">Add user</button>
-                </form>
-            </div>
-        </div>
-
+    </div>
         <?php else: ?>
-
             <?php foreach($users as $user) :?>
         <div class="container-flex py-5">
             <div class="row">
