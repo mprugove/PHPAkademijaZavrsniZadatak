@@ -7,118 +7,19 @@
         <hr class="my-4 hr">
     </div>
 </div>
-<div class="container-fluid">
-    <ul class="list-group list-group-horizontal">
+<div class="container">
+    <div class="row">
+    <?php foreach($cars as $car):?>
+        <div class="col-md-4">
+        <ul class="list-group ">
         <li class="list-group-item border-0 mx-4">
-            <?php $car->setId('1'); ?>
-            <?php $car->setCarName('Wartburg 353'); ?>
             <a href="review/?id=<?= $car->getId()?>" class="card-link">
-            <img src="/~polaznik17/img/<?=$car->getId('1') ?>.jpg" width="250" height="300" class="rounded img-responsive">
-                <p><?= htmlspecialchars($car->getCarName()) ?></p>
-        </a>
-        </li>
-        <li class="list-group-item border-0 mx-4">
-            <?php $car->setId('2'); ?>
-            <?php $car->setCarName('A-Class'); ?>
-            <a href="review/?id=<?= $car->getId()?>" class="card-link">
-            <img src="/~polaznik17/img/<?=$car->getId('2') ?>.jpg" width="250" height="300" class="rounded img-responsive">
-            <p><?= htmlspecialchars($car->getCarName()) ?></p>
-            </a>
-        </li>
-        <li class="list-group-item border-0 mx-4">
-        <?php $car->setId('3'); ?>
-        <?php $car->setCarName('C-Class'); ?>
-        <a href="review/?id=<?= $car->getId()?>" class="card-link">
             <img src="/~polaznik17/img/<?=$car->getId() ?>.jpg" width="250" height="300" class="rounded img-responsive">
-            <p><?= htmlspecialchars($car->getCarName()) ?></p>
-        </a>
-        </li>
-        <li class="list-group-item border-0 mx-4">
-        <?php $car->setId('4'); ?>
-        <?php $car->setCarName('E-Class'); ?>
-        <a href="review/?id=<?= $car->getId()?>" class="card-link">
-            <img src="/~polaznik17/img/<?=$car->getId() ?>.jpg" width="250" height="300" class="rounded img-responsive">
-            <p><?= htmlspecialchars($car->getCarName()) ?></p>
-        </a>
-        </li>
-        <li class="list-group-item border-0 mx-4">
-            <?php $car->setId('5'); ?>
-            <?php $car->setCarName('AMG-GT'); ?>
-            <a href="review/?id=<?= $car->getId()?>" class="card-link">
-                <img src="/~polaznik17/img/<?=$car->getId() ?>.jpg" width="250" height="300" class="rounded img-responsive">
                 <p><?= htmlspecialchars($car->getCarName()) ?></p>
             </a>
         </li>
-    </ul>
-    <br>
-    <ul class="list-group list-group-horizontal">
-        <li class="list-group-item border-0 mx-4">
-            <?php $car->setId('6'); ?>
-            <?php $car->setCarName('GLC'); ?>
-            <a href="review/?id=<?= $car->getId()?>" class="card-link">
-                <img src="/~polaznik17/img/<?=$car->getId() ?>.jpg" width="250" height="300" class="rounded img-responsive">
-                <p><?= htmlspecialchars($car->getCarName()) ?></p>
-            </a>
-        </li>
-        <li class="list-group-item border-0 mx-4">
-            <?php $car->setId('7'); ?>
-            <?php $car->setCarName('S-Class'); ?>
-            <a href="review/?id=<?= $car->getId()?>" class="card-link">
-                <img src="/~polaznik17/img/<?=$car->getId() ?>.jpg" width="250" height="300" class="rounded img-responsive">
-                <p><?= htmlspecialchars($car->getCarName()) ?></p>
-            </a>
-        </li>
-        <li class="list-group-item border-0 mx-4">
-            <?php $car->setId('8'); ?>
-            <?php $car->setCarName('A4'); ?>
-            <a href="review/?id=<?= $car->getId()?>" class="card-link">
-                <img src="/~polaznik17/img/<?=$car->getId() ?>.jpg" width="250" height="300" class="rounded img-responsive">
-                <p><?= htmlspecialchars($car->getCarName()) ?></p>
-            </a>
-        </li>
-        <li class="list-group-item border-0 mx-4">
-            <?php $car->setId('9'); ?>
-            <?php $car->setCarName('A6'); ?>
-            <a href="review/?id=<?= $car->getId()?>" class="card-link">
-                <img src="/~polaznik17/img/<?=$car->getId() ?>.jpg" width="250" height="300" class="rounded img-responsive">
-                <p><?= htmlspecialchars($car->getCarName()) ?></p>
-            </a>
-        </li>
-        <li class="list-group-item border-0 mx-4">
-            <?php $car->setId('10'); ?>
-            <?php $car->setCarName('A7'); ?>
-            <a href="review/?id=<?= $car->getId()?>" class="card-link">
-                <img src="/~polaznik17/img/<?=$car->getId() ?>.jpg" width="250" height="300" class="rounded img-responsive">
-                <p><?= htmlspecialchars($car->getCarName()) ?></p>
-            </a>
-        </li>
-    </ul>
-    <br>
-    <ul class="list-group list-group-horizontal">
-        <li class="list-group-item border-0 mx-4">
-            <?php $car->setId('11'); ?>
-            <?php $car->setCarName('308'); ?>
-            <a href="review/?id=<?= $car->getId()?>" class="card-link">
-                <img src="/~polaznik17/img/<?=$car->getId() ?>.jpg" width="250" height="300" class="rounded img-responsive">
-                <p><?= htmlspecialchars($car->getCarName()) ?></p>
-            </a>
-        </li>
-        <li class="list-group-item border-0 mx-4">
-            <?php $car->setId('12'); ?>
-            <?php $car->setCarName('3008'); ?>
-            <a href="review/?id=<?= $car->getId()?>" class="card-link">
-                <img src="/~polaznik17/img/<?=$car->getId() ?>.jpg" width="250" height="300" class="rounded img-responsive">
-                <p><?= htmlspecialchars($car->getCarName()) ?></p>
-            </a>
-        </li>
-        <li class="list-group-item border-0 mx-4">
-            <?php $car->setId('13'); ?>
-            <?php $car->setCarName('Juke'); ?>
-            <a href="review/?id=<?= $car->getId()?>" class="card-link">
-                <img src="/~polaznik17/img/<?=$car->getId() ?>.jpg" width="250" height="300" class="rounded img-responsive">
-                <p><?= htmlspecialchars($car->getCarName()) ?></p>
-            </a>
-        </li>
-    </ul>
+        </div>
+        <?php endforeach;?>
+    </div>
 </div>
 <?php include 'inc/footer.phtml'; ?>
